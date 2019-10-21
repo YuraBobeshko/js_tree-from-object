@@ -5,47 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
+  <script src="./script.js" defer></script>
 </head>
 <body>
   <div id="container"></div>
-  <script>
-  let data = {
-    "Рыбы": {
-      "форель": {},
-      "лосось": {}
-    },
-    "Деревья": {
-      "Огромные": {
-        "секвойя": {},
-        "дуб": {}
-      },
-      "Цветковые": {
-        "яблоня": {},
-        "магнолия": {}
-      }
-    }
-  };
-  
-  function createList(obj) {
-    if (!Object.keys(obj).length) {
-      return;
-    }
-    const ul = document.createElement('ul');
-    for (const item in obj) {
-      const li = document.createElement('li');
-      li.textContent = item;
-      const child = createList(obj[item]);
-      if (child) {
-        li.append(child);
-      }
-      ul.append(li);
-    }
-    return ul;
-  }
-  function createTree(container, data) {
-    container.append(createList(data));
-  }
-  createTree(document.querySelector('#container'), data);  
-  </script>
 </body>
 </html>
